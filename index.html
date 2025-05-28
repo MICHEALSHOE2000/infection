@@ -282,63 +282,65 @@
 
 </body>
 <script>
-// === Testimonial Slider ===
-const testimonials = [
-  {
-    text: "“I tried everything until I used this remedy. I haven’t had symptoms in over 6 months!”",
-    name: "Blessing, Lagos"
-  },
-  {
-    text: "“Best decision I ever made. I got my confidence back.”",
-    name: "Chukwuemeka, Abuja"
-  },
-  {
-    text: "“I was embarrassed by recurring infections. This worked fast!”",
-    name: "Rukayat, Ibadan"
+  // === Testimonial Slider ===
+  const testimonials = [
+    {
+      text: "“I tried everything until I used this remedy. I haven’t had symptoms in over 6 months!”",
+      name: "Blessing, Lagos"
+    },
+    {
+      text: "“Best decision I ever made. I got my confidence back.”",
+      name: "Chukwuemeka, Abuja"
+    },
+    {
+      text: "“I was embarrassed by recurring infections. This worked fast!”",
+      name: "Rukayat, Ibadan"
+    }
+  ];
+  
+  let currentTestimonial = 0;
+  const testimonialSection = document.getElementById("testimonials");
+  
+  function updateTestimonial() {
+    testimonialSection.innerHTML = `
+      <h2>What Others Are Saying</h2>
+      <blockquote>
+        <p>${testimonials[currentTestimonial].text}</p>
+        <cite>— ${testimonials[currentTestimonial].name}</cite>
+      </blockquote>
+    `;
+    currentTestimonial = (currentTestimonial + 1) % testimonials.length;
   }
-];
-
-let currentTestimonial = 0;
-const testimonialSection = document.getElementById("testimonials");
-
-function updateTestimonial() {
-  testimonialSection.innerHTML = `
-    <h2>What Others Are Saying</h2>
-    <blockquote>
-      <p>${testimonials[currentTestimonial].text}</p>
-      <cite>— ${testimonials[currentTestimonial].name}</cite>
-    </blockquote>
-  `;
-  currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-}
-
-updateTestimonial(); // Initial load
-setInterval(updateTestimonial, 10000); // Every 10 seconds
-
-// Fake Order Notification (Top-Right)
-const fakeOrders = [
-  "Mary from Lagos just ordered two bottles!",
-  "Ahmed from Abuja placed an order!",
-  "Chinwe from Enugu bought 2 packs!",
-  "Tolu from Ibadan just order the complete pack!",
-  "Fatima from Kano reordered this morning!"
-];
-
-const popup = document.getElementById('fake-order-popup');
-
-function showFakeOrder() {
-  popup.textContent = fakeOrders[Math.floor(Math.random() * fakeOrders.length)];
-  popup.style.opacity = '1';
-  setTimeout(() => {
-    popup.style.opacity = '0';
-  }, 5000);
-}
-
-// Fake Comment Submit - Just for realism
+  
+  updateTestimonial();
+  setInterval(updateTestimonial, 10000); // Change every 10s
+  
+  // === Fake Order Notification (Top-Right)
+  const fakeOrders = [
+    "Mary from Lagos just ordered two bottles!",
+    "Ahmed from Abuja placed an order!",
+    "Chinwe from Enugu bought 2 packs!",
+    "Tolu from Ibadan just ordered the complete pack!",
+    "Fatima from Kano reordered this morning!"
+  ];
+  
+  const popup = document.getElementById('fake-order-popup');
+  
+  function showFakeOrder() {
+    popup.textContent = fakeOrders[Math.floor(Math.random() * fakeOrders.length)];
+    popup.style.opacity = '1';
+    setTimeout(() => {
+      popup.style.opacity = '0';
+    }, 5000);
+  }
+  
+  setInterval(showFakeOrder, 25000); // Every 25 seconds
+  
+  // === Fake Comment Submit - Just for realism
   const sendBtn = document.getElementById('send-comment');
   const input = document.getElementById('comment-input');
   const toast = document.getElementById('comment-toast');
-
+  
   if (sendBtn && input && toast) {
     sendBtn.addEventListener('click', () => {
       if (input.value.trim() !== '') {
@@ -350,7 +352,7 @@ function showFakeOrder() {
       }
     });
   }
-
-</script>
+  </script>
+  
 
 </html>
