@@ -165,15 +165,10 @@
 
       <label for="state">State *</label>
       <input type="text" name="state" id="state" required />
-
-      <label for="quantity">Select Quantity + Discount *</label>
-<select name="quantity" id="quantity" size="3" required>
-  <option value="1">Buy 1 – ₦20,000</option>
-  <option value="2">Buy 2 – ₦35,000</option>
-  <option value="3">Buy 3 – ₦50,000</option>
-</select>
-
-
+  <p>Select Quantity + Discount *</p>
+  <label><input type="radio" name="quantity" value="1" required> Buy 1 – ₦20,000</label><br>
+  <label><input type="radio" name="quantity" value="2"> Buy 2 – ₦35,000</label><br>
+  <label><input type="radio" name="quantity" value="3"> Buy 3 – ₦50,000</label>
       <button type="submit">Place Order Now</button>
     </form>
   </section>
